@@ -1,16 +1,22 @@
 function checkForSpam (str) { 
   'use strict';
   
-  const array = str.toLowerCase().split(' ');
+  /* const array = str.toLowerCase().split(' ');
   console.log(array)
   for (const word of array) {
-    /* if (word.includes('sale').includes('spam')) {
-      return true;
-    } else {
-      return false;
-    } */
 
     return word.includes('sale' || 'spam') ? true : false;
+  } */
+
+  
+  const string = str.toLowerCase();
+  if (string.includes('sale')) {
+    return true;
+  } else if (string.includes('spam')) {
+    return true;
+  }
+    else {
+    return false;
   }
   
 }
