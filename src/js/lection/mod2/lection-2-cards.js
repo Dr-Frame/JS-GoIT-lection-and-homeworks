@@ -2,8 +2,10 @@
 
 const cards = ['card 1', 'card-2', 'card-3', 'card-4', 'card-5'];
 
-/* const removeCard = function (cardsArray, cardsToRemove) {
+const removeCard = function (cardsArray, cardsToRemove) {
   const cardIndex = cardsArray.indexOf(cardsToRemove);
+
+  // guard clause предварительный выход
   if (cardIndex === -1) {
     console.log('такой карточки нет');
     return;
@@ -12,9 +14,9 @@ const cards = ['card 1', 'card-2', 'card-3', 'card-4', 'card-5'];
 }
 
 removeCard(cards, 'card-2');
-console.log(cards); */
+console.log(cards);
 
-// функция добавление карточки
+// функция добавление карточки----------------------------------------------------
 
 const addCard = function (cardsArray, cardToAdd, index) {
 
