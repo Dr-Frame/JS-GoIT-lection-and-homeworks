@@ -21,7 +21,7 @@ const keys = Object.keys(user);
 // Write code under this line
 let newArray = [];
 for (const key of keys) {
-  newArray.push(`${[key]} : ${user[key]}\n`);
+  newArray.push(`${key} : ${user[key]}\n`);
   message = newArray.join('');
 };
 console.log(message)

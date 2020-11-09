@@ -1,45 +1,29 @@
+'use strict';
 const findBestEmployee = function (employees) {
-  'use strict';
-  // Write code under this line
-  const keys = Object.keys(employees);
-
-  for (const key of employees) {
-    console.log(employees[key])
-  }
-  /* for (let i = 0; i < keys.length; i += 1) {
-    console.log(keys[i])
-  } */
 
 
+  let max = 0;
+  let name = '';
 
-  /* console.log(devValue);
-  let message
-
-
-  for (let i = 0; i < devValue.length; i += 1) {
-    let maxTasks = devValue[0];
-    if (maxTasks < devValue[i]) {
-      maxTasks = devValue[i];
-      const name = Object.keys(employees);
-      message = `${name[i]}`;
-    }
-    
-  }
-  return message; */
-  
- 
-  /* for (const item of devValue) {
-    console.log(item);
-    console.log(maxTasks);
-    if (maxTasks < item) {
-      maxTasks = item;
+  const array = Object.keys(employees);
+  for (const key of array) {
+    if (employees[key] > max) {
+      max = employees[key];
+      name = key;
     }
   }
-  return maxTasks; */
+  return name;
 
-  
-
-};
+  /* let max = 0;
+  let name = '';
+  for (const key in employees) {
+    if (max < employees[key]) {
+      max = employees[key]
+      name = key;
+    } 
+  }
+  return name; */
+}
 
 // Объекты и ожидаемый результат
 const developers = {
@@ -56,7 +40,7 @@ const supports = {
   mango: 17,
   ajax: 4,
 }; 
-//console.log(findBestEmployee(supports)); 
+console.log(findBestEmployee(supports)); 
 // 'mango'
 
 const sellers = {
@@ -65,5 +49,8 @@ const sellers = {
   kiwi: 19,
   chelsy: 38,
 };
-//console.log(findBestEmployee(sellers)); 
-// 'lux'  
+console.log(findBestEmployee(sellers)); 
+// 'lux' 
+
+const empty = {};
+console.log(findBestEmployee(empty)); 
