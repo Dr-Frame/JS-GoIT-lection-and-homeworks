@@ -10,6 +10,19 @@ function calculateTotalPrice (array, prop) {
   return total;
 }
 
+// альтернатива потом придумал
+/* function calculateTotalPrice (array, prop) {
+  'use strict';
+  // Write code under this line
+  let total = 0;
+  for (const item of array) {
+    const count = Object.values(item);
+    if ( count.includes(prop))
+    total += count[1] * count[2];
+  }
+  return total;
+} */
+
 // Объекты и ожидаемый результат
 const products = [
     { name: 'Радар', price: 1300, quantity: 4 },
