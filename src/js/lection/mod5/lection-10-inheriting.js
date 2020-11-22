@@ -26,7 +26,7 @@ class Warrior extends Hero {
   }
 
   attack() {
-    console.log(`${this._name} атакует используя ${this.weapon}`);
+    console.log(`${this.name} атакует используя ${this.weapon}`);
   }
 }
 
@@ -34,3 +34,30 @@ const hulk = new Warrior('Hulk', 1000, 'двуручный меч');
 
 console.log(hulk);
 hulk.attack();
+
+class NightBlade extends Warrior {
+  constructor(name, xp, weapon, cast, damage, hp) {
+    super(name, xp, weapon);
+    this.cast = cast;
+    this.damage = damage;
+    this.hp = hp;
+  }
+
+  cast() {
+    console.log(
+      `${this.name} использует ${this.cast} и наносит ${this.damage}.`,
+    );
+  }
+}
+
+const frame = new NightBlade(
+  'Dr.Frame',
+  1000,
+  'клинок',
+  'танец ловкача',
+  50,
+  100,
+);
+
+console.log(frame);
+frame.cast();
