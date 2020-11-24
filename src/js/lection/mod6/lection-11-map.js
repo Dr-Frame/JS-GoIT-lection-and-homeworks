@@ -51,3 +51,26 @@ const updatedPlayers = players.map(function (player) {
 });
 console.table(updatedPlayers);
 console.table(players);
+
+// ================================= map() своими руками =========================================
+
+const numbers = [1, 2, 3, 4, 5];
+
+const map = function (array, callback) {
+  const newArray = [];
+  for (let i = 0; i < array.length; i++) {
+    const result = callback(array[i], i, array);
+    newArray.push(result);
+  }
+
+  return newArray;
+};
+
+const doubledNumbers = map(numbers, function (number, index, array) {
+  console.log(element);
+  console.log(index);
+  console.log(array);
+  return number * 2;
+});
+
+console.log(doubledNumbers);

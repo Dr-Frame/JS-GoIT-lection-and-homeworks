@@ -13,7 +13,7 @@ numbers.forEach(function (element, index, array) {
   console.log(array);
 });
 
-/* let maxEach = 0;
+let maxEach = 0;
 
 numbers.forEach(function (element) {
   if (element > maxEach) {
@@ -22,7 +22,7 @@ numbers.forEach(function (element) {
   return maxEach;
 });
 
-console.log(maxEach); */
+console.log(maxEach);
 
 /* let max = 0;
 const calc = function (array) {
