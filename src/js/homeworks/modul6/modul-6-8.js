@@ -1,5 +1,3 @@
-// Write code under this line
-
 const users = [
   {
     id: '701b29c3-b35d-4cf1-a5f6-8b12b29a5081',
@@ -86,53 +84,20 @@ const users = [
     age: 39,
   },
 ];
+// Write code under this line
+const getUsersWithFriend = (array, friendName) =>
+  array
+    .filter(({ friends }) => friends.includes(friendName))
+    .map(({ name }) => name);
 
-const getUserNames = array => array.map(({ name }) => name); // бот не принимал изза пробелов в { name }
+console.log(getUsersWithFriend(users, 'Briana Decker'));
+// [ 'Sharlene Bush', 'Sheree Anthony' ]
 
-console.log(getUserNames(users));
-/* [
-  "Moore Hensley",
-  "Sharlene Bush",
-  "Ross Vazquez",
-  "Elma Head",
-  "Carey Barr",
-  "Blackburn Dotson",
-  "Sheree Anthony",
-] */
+console.log(getUsersWithFriend(users, 'Goldie Gentry'));
+// [ 'Elma Head', 'Sheree Anthony' ]
 
-// ====================================== другие варианты решения ===============================
-/* const getUserNames = function (array) {
-  return array.map(function (obj) {
-    const { name } = obj;
-    return name;
-  });
-}; */
+/* Получи массив имен всех пользователей у которых есть друг с заданным именем.
 
-/* const getUserNames = array =>
-  array.map(function (obj) {
-    const { name } = obj;
-    return name;
-  });
- */
+Используй деструктурирующее присваивание для параметра функции {friends}и ({name}) без пробелов и переносов на новую строку
 
-/* const getUserNames = function (array) {
-  const arrayItem = array.map(function (item) {
-    const { name } = item;
-    return name;
-  });
-  return arrayItem;
-}; */
-
-/* const nameArrey = users.map(function (player) {
-  return player.name;
-});
-console.log(nameArrey); */
-
-/* const getUserNames = function (array) {
-  const newArray = [];
-  array.map(function (object) {
-    const { name } = object;
-    return newArray.push(name);
-  });
-  return newArray;
-}; */
+Используй только перебирающие методы массива которые не изменяют (не мутируют) исходный массив. Т.е. нельзя использовать for, splice, push и т.п. мутирующие методы. */

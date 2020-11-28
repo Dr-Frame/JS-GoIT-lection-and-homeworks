@@ -1,5 +1,3 @@
-// Write code under this line
-
 const users = [
   {
     id: '701b29c3-b35d-4cf1-a5f6-8b12b29a5081',
@@ -87,52 +85,37 @@ const users = [
   },
 ];
 
-const getUserNames = array => array.map(({ name }) => name); // бот не принимал изза пробелов в { name }
+// Write code under this line
+const getNamesSortedByFriendsCount = array =>
+  array
+    .slice()
+    .sort(
+      (prevFriend, nextFriend) =>
+        prevFriend.friends.length - nextFriend.friends.length,
+    )
+    .map(({ name }) => name);
 
-console.log(getUserNames(users));
-/* [
-  "Moore Hensley",
-  "Sharlene Bush",
-  "Ross Vazquez",
-  "Elma Head",
-  "Carey Barr",
-  "Blackburn Dotson",
-  "Sheree Anthony",
-] */
+console.log(getNamesSortedByFriendsCount(users));
+// [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]
 
-// ====================================== другие варианты решения ===============================
-/* const getUserNames = function (array) {
-  return array.map(function (obj) {
-    const { name } = obj;
-    return name;
-  });
-}; */
+//=================================================================================================
 
-/* const getUserNames = array =>
-  array.map(function (obj) {
-    const { name } = obj;
-    return name;
-  });
- */
+/* Получи массив имен (поле name) людей, отсортированных в зависимости от количества их друзей (поле friends)
 
-/* const getUserNames = function (array) {
-  const arrayItem = array.map(function (item) {
-    const { name } = item;
-    return name;
-  });
-  return arrayItem;
-}; */
+Избегаем мутации исходного массива: т.к. метод sort изменяет (мутирует) исходный массив, то следует сделать копию массива и сортировать уже копию, а не исходный массив.
 
-/* const nameArrey = users.map(function (player) {
-  return player.name;
-});
-console.log(nameArrey); */
+Копирование массива:
 
-/* const getUserNames = function (array) {
-  const newArray = [];
-  array.map(function (object) {
-    const { name } = object;
-    return newArray.push(name);
-  });
-  return newArray;
-}; */
+const arr = [1, 3, 5];
+
+// 1
+const first = [...arr];
+
+// 2
+const second = arr.slice();
+
+// 3
+const third = arr.concat();
+Используй деструктурирующее присваивание для параметра функции  ({name})` без пробелов и переносов на новую строку
+
+Используй только перебирающие методы массива которые не изменяют (не мутируют) исходный массив. Т.е. нельзя использовать for, splice, push и т.п. мутирующие методы. */

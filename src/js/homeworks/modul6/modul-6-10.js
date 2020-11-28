@@ -1,5 +1,3 @@
-// Write code under this line
-
 const users = [
   {
     id: '701b29c3-b35d-4cf1-a5f6-8b12b29a5081',
@@ -86,53 +84,47 @@ const users = [
     age: 39,
   },
 ];
+// Write code under this line
+const getSortedUniqueSkills = array =>
+  array
+    .reduce((allSkills, user) => {
+      allSkills.push(...user.skills);
+      return allSkills;
+    }, [])
+    .filter((item, i, arr) => {
+      return arr.indexOf(item) === i;
+    })
+    .sort();
 
-const getUserNames = array => array.map(({ name }) => name); // бот не принимал изза пробелов в { name }
+console.log(getSortedUniqueSkills(users));
 
-console.log(getUserNames(users));
-/* [
-  "Moore Hensley",
-  "Sharlene Bush",
-  "Ross Vazquez",
-  "Elma Head",
-  "Carey Barr",
-  "Blackburn Dotson",
-  "Sheree Anthony",
-] */
+/* [ 'adipisicing', 'amet',
+ 'anim', 'commodo',
+ 'culpa', 'elit',
+ 'ex', 'ipsum',
+ 'irure', 'laborum',
+ 'lorem', 'mollit',
+ 'non', 'nostrud',
+ 'nulla', 'proident',
+ 'tempor', 'velit',
+ 'veniam' ]; */
 
-// ====================================== другие варианты решения ===============================
-/* const getUserNames = function (array) {
-  return array.map(function (obj) {
-    const { name } = obj;
-    return name;
-  });
-}; */
+//=============================================================================
 
-/* const getUserNames = array =>
-  array.map(function (obj) {
-    const { name } = obj;
-    return name;
-  });
- */
+/* Получи массив всех умений всех пользователей(поле skills), при этом не должно быть
+повторяющихся умений и они должны быть отсортированы в алфавитном порядке.
 
-/* const getUserNames = function (array) {
-  const arrayItem = array.map(function (item) {
-    const { name } = item;
-    return name;
-  });
-  return arrayItem;
-}; */
+Слияние массивов:
 
-/* const nameArrey = users.map(function (player) {
-  return player.name;
-});
-console.log(nameArrey); */
+const odd = [1, 3, 5];
+const even = [2, 4, 6];
 
-/* const getUserNames = function (array) {
-  const newArray = [];
-  array.map(function (object) {
-    const { name } = object;
-    return newArray.push(name);
-  });
-  return newArray;
-}; */
+// 1
+[...odd, ...even];
+//  [1, 3, 5, 2, 4, 6]
+
+// 2
+odd.concat(even)
+//  [1, 3, 5, 2, 4, 6]
+Используй только перебирающие методы массива которые не изменяют(не мутируют) исходный массив.
+  Т.е.нельзя использовать for, splice, push и т.п.мутирующие методы. */

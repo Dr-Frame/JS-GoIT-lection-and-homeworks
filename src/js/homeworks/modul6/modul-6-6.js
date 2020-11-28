@@ -1,5 +1,3 @@
-// Write code under this line
-
 const users = [
   {
     id: '701b29c3-b35d-4cf1-a5f6-8b12b29a5081',
@@ -87,52 +85,23 @@ const users = [
   },
 ];
 
-const getUserNames = array => array.map(({ name }) => name); // бот не принимал изза пробелов в { name }
+// Write code under this line
+const getUsersWithAge = (array, min, max) =>
+  array
+    .filter(({ age }) => age < max && age > min)
+    .map(({ name, email }) => ({ ['name']: name, ['email']: email }));
 
-console.log(getUserNames(users));
+console.log(getUsersWithAge(users, 20, 30));
 /* [
-  "Moore Hensley",
-  "Sharlene Bush",
-  "Ross Vazquez",
-  "Elma Head",
-  "Carey Barr",
-  "Blackburn Dotson",
-  "Sheree Anthony",
+    { name: 'Ross Vazquez', email: 'rossvazquez@xinware.com' },
+    { name: 'Elma Head', email: 'elmahead@omatom.com' },
+    { name: 'Carey Barr', email: 'careybarr@nurali.com' }
 ] */
 
-// ====================================== другие варианты решения ===============================
-/* const getUserNames = function (array) {
-  return array.map(function (obj) {
-    const { name } = obj;
-    return name;
-  });
-}; */
-
-/* const getUserNames = array =>
-  array.map(function (obj) {
-    const { name } = obj;
-    return name;
-  });
- */
-
-/* const getUserNames = function (array) {
-  const arrayItem = array.map(function (item) {
-    const { name } = item;
-    return name;
-  });
-  return arrayItem;
-}; */
-
-/* const nameArrey = users.map(function (player) {
-  return player.name;
-});
-console.log(nameArrey); */
-
-/* const getUserNames = function (array) {
-  const newArray = [];
-  array.map(function (object) {
-    const { name } = object;
-    return newArray.push(name);
-  });
-  return newArray;
-}; */
+console.log(getUsersWithAge(users, 30, 40));
+/* [
+    { name: 'Moore Hensley', email: 'moorehensley@indexia.com' },
+    { name: 'Sharlene Bush', email: 'sharlenebush@tubesys.com' },
+    { name: 'Blackburn Dotson', email: 'blackburndotson@furnigeer.com' },
+    { name: 'Sheree Anthony', email: 'shereeanthony@kog.com' }
+] */
