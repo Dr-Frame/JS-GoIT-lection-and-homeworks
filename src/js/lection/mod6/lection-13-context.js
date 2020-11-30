@@ -40,3 +40,37 @@ const hero = {
 };
 
 hero.heroFn();
+
+// стрелки как методы обьекта НЕ ИСПОЛЬЗОВАТЬ!!!
+
+/* const heroArrow = {
+  name: 'Lox',
+  showLox: () => {
+    console.log('this: ', this); // undefined потому что heroArrow обьявлен в глобальной области видимости
+    console.log('this.name: ', this.name);
+  },
+};
+
+heroArrow.showLox(); */
+
+// если применить bind() работать тоже не будет
+/* const bindHeroArrow = heroArrow.showLox.bind(heroArrow);
+
+bindHeroArrow(); */
+
+//=====================================
+//стрелочная функция не может быть конструктором
+
+/* const User = function (name) {
+  this.name = name;
+};
+
+console.log(new User('Mango')); // работает */
+
+// а теперь стрелка
+
+const User = name => {
+  this.name = name;
+};
+
+console.log(new User('Mango'));

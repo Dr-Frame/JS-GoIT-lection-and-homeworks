@@ -85,11 +85,25 @@ const users = [
   },
 ];
 // Write code under this line
+
+// =========================== первый вариант ========================
+/* const getSortedUniqueSkills = array =>
+  array
+    .reduce((allSkills, user) => {
+      const newArr = allSkills.concat(user.skills);
+      return newArr;
+    }, [])
+    .filter((item, i, arr) => {
+      return arr.indexOf(item) === i;
+    })
+    .sort(); */
+
+// =========================== второй вариант ========================
+
 const getSortedUniqueSkills = array =>
   array
     .reduce((allSkills, user) => {
-      allSkills.push(...user.skills);
-      return allSkills;
+      return [...allSkills, ...user.skills];
     }, [])
     .filter((item, i, arr) => {
       return arr.indexOf(item) === i;
@@ -128,3 +142,8 @@ odd.concat(even)
 //  [1, 3, 5, 2, 4, 6]
 Используй только перебирающие методы массива которые не изменяют(не мутируют) исходный массив.
   Т.е.нельзя использовать for, splice, push и т.п.мутирующие методы. */
+
+/* const a = [5, 4, 3];
+const b = [];
+
+console.log(a.concat(b)); */
