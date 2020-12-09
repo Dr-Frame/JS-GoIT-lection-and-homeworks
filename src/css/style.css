@@ -1,0 +1,20 @@
+.products-list {
+  background-color: wheat;
+}
+
+.product__title::before {
+  display: inline-block;
+  content: '';
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  border-radius: 50%;
+}
+
+.product__title--available::before {
+  background-color: green;
+}
+
+.product__title--not-available::before {
+  background-color: red;
+}
