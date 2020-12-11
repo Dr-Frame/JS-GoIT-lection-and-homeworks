@@ -1,5 +1,5 @@
 function checkIfCanAccessContent(subType) {
-  const canAccessContent = ; // дополни эту строку
+  const canAccessContent = 'vip' === subType || 'pro' === subType; // дополни эту строку
 
   return canAccessContent;
 }

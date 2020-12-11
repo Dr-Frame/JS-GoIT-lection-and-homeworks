@@ -20,6 +20,7 @@ clearBtnRef.addEventListener('click', () => {
 
 function createBoxes(amount) {
   clearsBox();
+  let boxesContainer = [];
   for (let i = 0; i < amount; i += 1) {
     const generatedDiv = document.createElement('div');
     //добавляем рандом RGB
@@ -29,9 +30,11 @@ function createBoxes(amount) {
     let basicHeight = 30;
     generatedDiv.style.width = `${basicWidth + i * 10}px`;
     generatedDiv.style.height = `${basicHeight + i * 10}px`;
-    //добавляем в div сгенерированный бокс
-    boxesDivRef.appendChild(generatedDiv);
+    //добавляем в div массив
+    boxesContainer.push(generatedDiv);
+    //boxesDivRef.appendChild(generatedDiv); // добавляет поэлементно, страдает производительность
   }
+  boxesDivRef.append(...boxesContainer);
 }
 
 function clearsBox() {
