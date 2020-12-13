@@ -12,16 +12,21 @@ function onTagsClick(event) {
     return;
   }
 
-  const currentActiveTag = event.currentTarget.querySelector(
-    '.tags__btn--active',
-  );
+  const nextActiveTag = event.target;
+  const activeTagValue = nextActiveTag.dataset.value;
+  setActiveTag(nextActiveTag);
+  updateOutput(activeTagValue);
+}
+
+function setActiveTag(nextActiveTag) {
+  const currentActiveTag = refs.tags.querySelector('.tags__btn--active');
 
   if (currentActiveTag) {
-    console.log('уже есть такой');
     currentActiveTag.classList.remove('tags__btn--active');
   }
-  const nextActiveTag = event.target;
   nextActiveTag.classList.add('tags__btn--active');
+}
 
-  refs.activeTagOutput.textContent = event.target.dataset.value;
+function updateOutput(value) {
+  refs.activeTagOutput.textContent = value;
 }
